@@ -6,7 +6,12 @@
 
 body {
     margin: auto 5%;
-    font-family: "DM Sans", sans-serif;
+}
+body,
+button,
+input {
+    font-family: "Lato", sans-serif;
+    border: none;
 }
 header {
     margin-top: 30px;
@@ -18,6 +23,7 @@ header {
 h1 {
     color: #d04f4f;
     margin-top: 5px;
+    font-family: "DM Sans", sans-serif;
 }
 form input {
     font-size: 18px;
@@ -26,10 +32,32 @@ form input {
     padding-right: 60px;
     margin: 20px 0;
     border-radius: 5px;
-    border: none;
     background-color: #e7e7e7;
     background-image: url("assets/glass.svg");
     background-repeat: no-repeat;
     background-position: 98%;
     background-size: 25px;
+}
+
+button {
+    width: 170px;
+    height: 69px;
+    margin-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    background-color: #3282f7;
+    background-image: url("assets/downChevron.svg");
+    background-repeat: no-repeat;
+    background-position: 90%;
+    background-size: 20px;
+}
+#appareils {
+    background-color: #68d9a4;
+}
+#ustensiles {
+    background-color: #ed6454;
 }
