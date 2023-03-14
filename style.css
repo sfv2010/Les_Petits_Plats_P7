@@ -5,7 +5,7 @@
 }
 
 body {
-    margin: auto 5%;
+    margin: auto 6%;
 }
 body,
 button,
@@ -60,4 +60,71 @@ button {
 }
 #ustensiles {
     background-color: #ed6454;
+}
+/* --------------recipeFactory-------------- */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+article {
+    max-width: 380px;
+    height: 364px;
+    background: #e7e7e7;
+    border-radius: 5px;
+    margin: 25px 0;
+}
+.imgRecipe {
+    height: 178px;
+    background: #c7bebe;
+    border-radius: 5px 5px 0 0;
+}
+.container,
+.box {
+    padding: 20px 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.container {
+    align-items: center;
+}
+.box {
+    max-height: 115px;
+}
+h2,
+.quantity {
+    font-weight: 400;
+}
+h3,
+.ingredients {
+    font-weight: 700;
+}
+h2,
+h3 {
+    font-size: 18px;
+}
+h3 {
+    min-width: 80px;
+    max-height: 24px;
+    text-align: right;
+    background-image: url("assets/time.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 20px;
+}
+p,
+.ingredients,
+.quantity {
+    font-size: 12px;
+    overflow: hidden;
+}
+p {
+    font-family: "roboto";
+    flex: 1;
+}
+ul {
+    list-style-type: none;
+    flex: 1;
+    margin-right: 5px;
 }
