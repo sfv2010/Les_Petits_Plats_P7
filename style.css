@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: auto 5%;
+    font-family: "DM Sans", sans-serif;
+}
+header {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+h1 {
+    color: #d04f4f;
+    margin-top: 5px;
+}
+form input {
+    font-size: 18px;
+    width: 100%;
+    padding: 18px;
+    padding-right: 60px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #e7e7e7;
+    background-image: url("assets/glass.svg");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    background-size: 25px;
+}

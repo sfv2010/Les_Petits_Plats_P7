@@ -1,1 +1,1 @@
-# Les_Petits_Plats_P7
+# Projet7 - Les petits plats : ## Développez un algorithme de recherche en JavaScript
