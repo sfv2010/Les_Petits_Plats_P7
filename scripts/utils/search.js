@@ -1,5 +1,5 @@
 export function searchInput() {
-    const input = document.querySelector("input");
+    const input = document.querySelector("#search");
     const cards = document.querySelectorAll("article");
 
     input.addEventListener("keyup", function (e) {

@@ -1,5 +1,6 @@
 export function recipesFactory(recipes) {
     const { name, ingredients, time, description } = recipes;
+
     function getRecipeCardDOM() {
         const articleRecipe = document.createElement("article");
 
@@ -23,12 +24,10 @@ export function recipesFactory(recipes) {
         const ulRecipe = document.createElement("ul");
 
         ingredients.forEach((ingredient) => {
-            console.log(ingredients);
             const listIngredients = document.createElement("li");
-            listIngredients.classList.add("ingredients");
+            listIngredients.classList.add("ingredient");
             listIngredients.textContent = `${ingredient.ingredient}: `;
             ulRecipe.appendChild(listIngredients);
-
             if (ingredient.quantity) {
                 const listQuantity = document.createElement("span");
                 listQuantity.classList.add("quantity");
