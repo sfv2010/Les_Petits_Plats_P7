@@ -11,7 +11,6 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap"
 			rel="stylesheet">
-		<script src="https://kit.fontawesome.com/ee83a0c4c7.js" crossorigin="anonymous"></script>
 		<title>Les petits plats</title>
 	</head>
 
@@ -20,13 +19,46 @@
 			<img src="assets/logo.svg" alt="Logo les Petits Plats">
 			<h1>Les petits plats</h1>
 		</header>
-		<form action="index.html" method="get">
-			<input type="search" name="search" placeholder="Rechercher une recette">
-		</form>
+
+		<input type="search" id="search" placeholder="Rechercher une recette">
+
 		<nav>
-			<button id="ingredient">Ingredient</button>
-			<button id="appareils">Appareils</button>
-			<button id="ustensiles">Ustensiles</button>
+			<div class="searchByKeyword">
+				<button class="buttonIngredient ingredients">Ingredient</button>
+				<div class="dropDown" id="dropDownIngredient">
+					<input type="text" class="searchBox ingredients" class="ingredient"
+						placeholder="Rechercher un ingredient">
+					<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpIngredient">
+					<!-- <ul class="dropDownUl ingredients">
+						<li>coco</li>
+						<li>coco</li>
+						<li>coco</li>
+						<li>coco</li>
+					</ul> -->
+				</div>
+			</div>
+			<div class="searchByKeyword">
+				<button class="buttonAppareil appareils">Appareils</button>
+				<div class="dropDown" id="dropDownAppareil">
+					<input type="text" class="searchBox appareils" placeholder="Rechercher un appareil">
+					<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpAppareil">
+					<ul class="dropDownUl appareils">
+						<li>coco</li>
+						<li>coco</li>
+						<li>coco</li>
+					</ul>
+				</div>
+			</div>
+			<div class="searchByKeyword">
+				<button class="buttonUstensile ustensiles">Ustensiles</button>
+				<div class="dropDown" id="dropDownUstensile">
+					<input type="text" class="searchBox ustensiles" placeholder="Rechercher un ustensile">
+					<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpUstensile">
+					<ul class="dropDownUl ustensiles">
+						<li>coco</li>
+					</ul>
+				</div>
+			</div>
 		</nav>
 		<main>
 
