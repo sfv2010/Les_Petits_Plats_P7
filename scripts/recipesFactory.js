@@ -1,13 +1,5 @@
 export function recipesFactory(recipes) {
-    const {
-        name,
-        listIngredients,
-        ingredient,
-        quantity,
-        unit,
-        time,
-        description,
-    } = recipes;
+    const { name, ingredients, time, description } = recipes;
     function getRecipeCardDOM() {
         const articleRecipe = document.createElement("article");
 
@@ -29,12 +21,24 @@ export function recipesFactory(recipes) {
         // boxRecipe.tabIndex = "0";
 
         const ulRecipe = document.createElement("ul");
-        const listIngredients = document.createElement("li");
-        listIngredients.classList.add("ingredients");
-        listIngredients.textContent = `${ingredient}: `;
-        const listQuantity = document.createElement("span");
-        listQuantity.classList.add("quantity");
-        listQuantity.textContent = `${quantity} ${unit}`;
+
+        ingredients.forEach((ingredient) => {
+            console.log(ingredients);
+            const listIngredients = document.createElement("li");
+            listIngredients.classList.add("ingredients");
+            listIngredients.textContent = `${ingredient.ingredient}: `;
+            ulRecipe.appendChild(listIngredients);
+
+            if (ingredient.quantity) {
+                const listQuantity = document.createElement("span");
+                listQuantity.classList.add("quantity");
+                listQuantity.textContent = ` ${ingredient.quantity} `;
+                if (ingredient.unit) {
+                    listQuantity.textContent = ` ${ingredient.quantity} ${ingredient.unit}`;
+                }
+                listIngredients.appendChild(listQuantity);
+            }
+        });
 
         const detailRecipe = document.createElement("p");
         detailRecipe.textContent = description;
@@ -46,8 +50,6 @@ export function recipesFactory(recipes) {
         divRecipe.appendChild(timeRecipe);
         boxRecipe.appendChild(ulRecipe);
         boxRecipe.appendChild(detailRecipe);
-        ulRecipe.appendChild(listIngredients);
-        listIngredients.appendChild(listQuantity);
 
         return articleRecipe;
     }
