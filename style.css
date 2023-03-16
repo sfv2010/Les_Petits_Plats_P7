@@ -25,7 +25,7 @@ h1 {
     margin-top: 5px;
     font-family: "DM Sans", sans-serif;
 }
-form input {
+input {
     font-size: 18px;
     width: 100%;
     padding: 18px;
@@ -127,4 +127,7 @@ ul {
     list-style-type: none;
     flex: 1;
     margin-right: 5px;
+}
+.hidden {
+    display: none;
 }
