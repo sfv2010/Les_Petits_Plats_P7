@@ -41,8 +41,11 @@ h1 {
 }
 nav {
     display: flex;
+    flex-direction: column;
 }
-
+.searchContainer {
+    display: flex;
+}
 button,
 .searchBox,
 .dropDownUl {
@@ -104,15 +107,22 @@ button {
     position: relative;
 }
 .dropDown {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     display: none;
 }
-/* .buttonIngredient {
-    position: relative;
-} */
-
+.tagContainer {
+    display: flex;
+}
+.tag {
+    margin: 0px 10px 20px 0px;
+    padding: 10px 40px 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-image: url("assets/xmark.svg");
+    background-repeat: no-repeat;
+    background-position: 80%;
+    background-size: 20px;
+    background-color: #3282f7;
+}
 .imgUp {
     position: absolute;
     right: 40px;
