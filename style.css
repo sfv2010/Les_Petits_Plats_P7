@@ -133,6 +133,9 @@ button {
     background-color: #3282f7;
     cursor: pointer;
 }
+.tag:hover {
+    background-image: url("assets/xmarkRed.svg");
+}
 
 .imgUp {
     position: absolute;
