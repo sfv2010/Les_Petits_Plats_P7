@@ -2,12 +2,15 @@ import { recipes } from "./data/recipes.js";
 import { recipesFactory } from "./factories/recipesFactory.js";
 //import { searchInMainBar } from "./utils/searchInMainBar.js";
 import { showList } from "./utils/list.js";
+import { displayTag } from "./utils/displayTag.js";
+//import { closeTag } from "./utils/closeTag.js";
 
 function displayData(recipes) {
     const recipeMain = document.querySelector("main");
     const ulIngredient = document.querySelector(".ulIngredient");
     const ulAppliance = document.querySelector(".ulAppliance");
     const ulUstensile = document.querySelector(".ulUstensile");
+
     let arrayIngredients = [];
     let arrayAppliances = [];
     let arrayUstensils = [];
@@ -33,9 +36,10 @@ function displayData(recipes) {
             arrayIngredients[i].slice(1);
     }
     let sortIngredients = [...new Set(arrayIngredients)].sort();
-    sortIngredients.forEach((ingredient) => {
+    sortIngredients.forEach((ingredient, index) => {
         const listRecipe = document.createElement("li");
         listRecipe.classList.add("listRecipe");
+        listRecipe.id = ingredient;
         listRecipe.textContent = ingredient;
         ulIngredient.appendChild(listRecipe);
     });
@@ -46,9 +50,10 @@ function displayData(recipes) {
     });
 
     let sortAppliances = [...new Set(arrayAppliances)].sort();
-    sortAppliances.forEach((appliance) => {
+    sortAppliances.forEach((appliance, index) => {
         const listRecipe = document.createElement("li");
         listRecipe.classList.add("listRecipe");
+        listRecipe.value = index;
         listRecipe.textContent = appliance;
         ulAppliance.appendChild(listRecipe);
     });
@@ -58,8 +63,6 @@ function displayData(recipes) {
         recipe.ustensils.forEach((ustensilKey) => {
             arrayUstensils.push(ustensilKey);
         });
-        // arrayUstensils.push(recipe.ustensils);
-        //console.log(recipe.ustensils);
     });
     for (let i in arrayUstensils) {
         arrayUstensils[i] =
@@ -68,9 +71,10 @@ function displayData(recipes) {
     }
 
     let sortUstensiles = [...new Set(arrayUstensils)].sort();
-    sortUstensiles.forEach((ustensile) => {
+    sortUstensiles.forEach((ustensile, index) => {
         const listRecipe = document.createElement("li");
         listRecipe.classList.add("listRecipe");
+        listRecipe.id = index;
         listRecipe.textContent = ustensile;
         ulUstensile.appendChild(listRecipe);
     });
@@ -83,3 +87,6 @@ init();
 
 //searchInMainBar();
 showList();
+
+displayTag();
+//closeTag();
