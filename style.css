@@ -110,7 +110,7 @@ button {
 .dropDown {
     display: none;
 }
-.tagContainer {
+.tagsContainer {
     display: flex;
     align-items: center;
     position: relative;
