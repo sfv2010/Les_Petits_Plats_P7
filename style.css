@@ -6,6 +6,7 @@
 
 body {
     margin: auto 6%;
+    position: relative;
 }
 body,
 button,
@@ -42,6 +43,8 @@ h1 {
 nav {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    z-index: 2;
 }
 .searchContainer {
     display: flex;
@@ -76,10 +79,12 @@ button {
 .ingredients {
     background-color: #3282f7;
 }
-.appliances {
+.appliances,
+#appliance {
     background-color: #68d9a4;
 }
-.ustensiles {
+.ustensiles,
+#ustensile {
     background-color: #ed6454;
 }
 .dropDownUl {
@@ -144,6 +149,8 @@ button {
 
 /* --------------recipeFactory-------------- */
 main {
+    position: absolute;
+    top: 160%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
