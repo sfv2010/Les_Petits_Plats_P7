@@ -17,21 +17,22 @@ export function showList() {
     const imgUps = [imgUpIngredient, imgUpAppliance, imgUpUstensile];
 
     function openList(e) {
+        const eTextContent = e.target.textContent;
         for (let button of buttons) button.style.display = "block";
         for (let dropDown of dropDowns) dropDown.style.display = "none";
 
-        if (e.target.textContent === "Ingredient") {
+        if (eTextContent === "Ingredient") {
             buttonIngredient.style.display = "none";
             dropDownIngredient.style.display = "block";
-        } else if (e.target.textContent === "Appareils") {
+        } else if (eTextContent === "Appareils") {
             buttonAppliance.style.display = "none";
             dropDownAppliance.style.display = "block";
-        } else if (e.target.textContent === "Ustensiles") {
+        } else if (eTextContent === "Ustensiles") {
             buttonUstensile.style.display = "none";
             dropDownUstensile.style.display = "block";
         }
     }
-    function closeList(e) {
+    function closeList() {
         for (let button of buttons) button.style.display = "block";
         for (let dropDown of dropDowns) dropDown.style.display = "none";
     }
@@ -40,6 +41,6 @@ export function showList() {
         button.addEventListener("click", (e) => openList(e))
     );
     imgUps.forEach((imgUp) =>
-        imgUp.addEventListener("click", (e) => closeList(e))
+        imgUp.addEventListener("click", () => closeList())
     );
 }
