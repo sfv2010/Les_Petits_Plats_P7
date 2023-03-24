@@ -33,6 +33,7 @@ export function recipesFactory(recipes) {
                 listQuantity.classList.add("quantity");
                 listQuantity.textContent = ` ${ingredient.quantity} `;
                 if (ingredient.unit) {
+                    if (ingredient.unit === "grammes") ingredient.unit = "g";
                     listQuantity.textContent = ` ${ingredient.quantity} ${ingredient.unit}`;
                 }
                 listIngredients.appendChild(listQuantity);
