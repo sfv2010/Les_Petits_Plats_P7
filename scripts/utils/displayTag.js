@@ -7,6 +7,7 @@ export function displayTag() {
         console.log(e.target.id);
         tagRecipe.classList.add("tag");
         tagRecipe.textContent = e.target.textContent;
+        tagRecipe.tabIndex = "0";
         tagsContainer.appendChild(tagRecipe);
         if (e.target.id === "appliance") {
             tagRecipe.id = "appliance";
@@ -23,9 +24,23 @@ export function displayTag() {
         tags.forEach((tag) => {
             tag.addEventListener("click", closeTag);
         });
+        tags.forEach((tag) => {
+            tag.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" || e.key === "Enter") {
+                    closeTag(e);
+                }
+            });
+        });
     }
 
     listRecipes.forEach((listRecipe) => {
         listRecipe.addEventListener("click", toggleTag);
+    });
+    listRecipes.forEach((listRecipe) => {
+        listRecipe.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                toggleTag(e);
+            }
+        });
     });
 }
