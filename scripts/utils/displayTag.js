@@ -1,26 +1,31 @@
 export function displayTag() {
     const listRecipes = document.querySelectorAll(".listRecipe");
-    const tagContainer = document.querySelector(".tagContainer");
+    const tagsContainer = document.querySelector(".tagsContainer");
 
-    function displayTag(e) {
-        const tagRecipe = document.createElement("span"); //外に作ると、更新するごとに前回作ったものが消えて上書きされてしまう
+    function toggleTag(e) {
+        const tagRecipe = document.createElement("span");
+        console.log(e.target.id);
         tagRecipe.classList.add("tag");
-        tagRecipe.textContent = e.target.id;
-        tagContainer.appendChild(tagRecipe);
-        console.log(e.target);
+        tagRecipe.textContent = e.target.textContent;
+        tagsContainer.appendChild(tagRecipe);
+        if (e.target.id === "appliance") {
+            tagRecipe.id = "appliance";
+        }
+        if (e.target.id === "ustensile") {
+            tagRecipe.id = "ustensile";
+        }
+
+        //close tag
+        function closeTag(e) {
+            e.target.style.display = "none";
+        }
+        const tags = document.querySelectorAll(".tag");
+        tags.forEach((tag) => {
+            tag.addEventListener("click", closeTag);
+        });
     }
 
     listRecipes.forEach((listRecipe) => {
-        listRecipe.addEventListener("click", displayTag);
+        listRecipe.addEventListener("click", toggleTag);
     });
-    // if (tagRecipe) {
-    //     function closeTag(e) {
-    //         e.target.style.display = "none";
-    //     }
-    //     const tags = document.querySelectorAll(".tag");
-    //     console.log(tags);
-    //     tags.forEach((tag) => {
-    //         tag.addEventListener("click", closeTag);
-    //     });
-    // }
 }
