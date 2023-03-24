@@ -97,6 +97,7 @@ button {
 .listRecipe {
     width: 200px;
     padding: 10px;
+    cursor: pointer;
 }
 .dropDownUl:after {
     content: "";
@@ -111,18 +112,23 @@ button {
 }
 .tagContainer {
     display: flex;
+    align-items: center;
+    position: relative;
 }
 .tag {
     margin: 0px 10px 20px 0px;
-    padding: 10px 40px 10px 20px;
+    padding: 10px 50px 10px 20px;
+    white-space: nowrap;
     color: #fff;
     border-radius: 5px;
     background-image: url("assets/xmark.svg");
     background-repeat: no-repeat;
-    background-position: 80%;
+    background-position: 90%;
     background-size: 20px;
     background-color: #3282f7;
+    cursor: pointer;
 }
+
 .imgUp {
     position: absolute;
     right: 40px;
