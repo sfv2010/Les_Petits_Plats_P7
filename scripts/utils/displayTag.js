@@ -9,6 +9,9 @@ export function displayTag() {
         tagRecipe.textContent = e.target.textContent;
         tagRecipe.tabIndex = "0";
         tagsContainer.appendChild(tagRecipe);
+        if (e.target.id === "ingredient") {
+            tagRecipe.id = "ingredient";
+        }
         if (e.target.id === "appliance") {
             tagRecipe.id = "appliance";
         }
