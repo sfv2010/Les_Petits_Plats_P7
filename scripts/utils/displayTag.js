@@ -10,13 +10,13 @@ export function displayTag() {
         tagRecipe.tabIndex = "0";
         tagsContainer.appendChild(tagRecipe);
         if (e.target.id === "ingredient") {
-            tagRecipe.id = "ingredient";
+            tagRecipe.id = "tagIngredient";
         }
         if (e.target.id === "appliance") {
-            tagRecipe.id = "appliance";
+            tagRecipe.id = "tagAppliance";
         }
         if (e.target.id === "ustensile") {
-            tagRecipe.id = "ustensile";
+            tagRecipe.id = "tagUstensile";
         }
 
         //close tag
