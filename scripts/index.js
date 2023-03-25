@@ -37,10 +37,10 @@ function displayData(recipes) {
             arrayIngredients[i].slice(1);
     }
     let sortIngredients = [...new Set(arrayIngredients)].sort();
-    sortIngredients.forEach((ingredient, index) => {
+    sortIngredients.forEach((ingredient) => {
         const listRecipe = document.createElement("li");
         listRecipe.classList.add("listRecipe");
-        listRecipe.id = index;
+        listRecipe.id = "ingredient";
         listRecipe.textContent = ingredient;
         listRecipe.tabIndex = "0";
         ulIngredient.appendChild(listRecipe);
