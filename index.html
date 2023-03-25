@@ -17,12 +17,12 @@
 	<body>
 		<header>
 			<img src="assets/logo.svg" alt="Logo les Petits Plats">
-			<h1>Les petits plats</h1>
+			<h1 tabindex="0">Les petits plats</h1>
 		</header>
 
-		<input type="search" id="search" placeholder="Rechercher une recette">
+		<input type="search" id="search" placeholder="Rechercher une recette" aria-label="search">
 
-		<nav>
+		<nav aria-label="searching">
 			<div class="tagsContainer">
 				<!-- <span class="tag">tt</span> -->
 			</div>
@@ -31,8 +31,10 @@
 
 					<button class="buttonIngredient ingredients">Ingredient</button>
 					<div class="dropDown" id="dropDownIngredient">
-						<input type="text" class="searchBox ingredients" placeholder="Rechercher un ingredient">
-						<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpIngredient">
+						<input type="text" class="searchBox ingredients" placeholder="Rechercher un ingredient"
+							aria-label="search with ingredients">
+						<img src=" assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpIngredient"
+							tabindex="0">
 						<ul class="dropDownUl ingredients ulIngredient">
 
 						</ul>
@@ -41,8 +43,10 @@
 				<div class="searchByKeyword">
 					<button class="buttonAppliance appliances">Appareils</button>
 					<div class="dropDown" id="dropDownAppliance">
-						<input type="text" class="searchBox appliances" placeholder="Rechercher un appareil">
-						<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpAppliance">
+						<input type="text" class="searchBox appliances" placeholder="Rechercher un appareil"
+							aria-label="search with appliances">
+						<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpAppliance"
+							tabindex="0">
 						<ul class="dropDownUl appliances ulAppliance">
 
 						</ul>
@@ -51,8 +55,10 @@
 				<div class="searchByKeyword">
 					<button class="buttonUstensile ustensiles">Ustensiles</button>
 					<div class="dropDown" id="dropDownUstensile">
-						<input type="text" class="searchBox ustensiles" placeholder="Rechercher un ustensile">
-						<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpUstensile">
+						<input type="text" class="searchBox ustensiles" placeholder="Rechercher un ustensile"
+							aria-label="search with ustensiles">
+						<img src="assets/upChevron.svg" alt="fermeture de list" class="imgUp" id="imgUpUstensile"
+							tabindex="0">
 						<ul class="dropDownUl ustensiles ulUstensile">
 
 						</ul>
@@ -60,7 +66,7 @@
 				</div>
 			</div>
 		</nav>
-		<main>
+		<main aria-label="Display recipe cards">
 
 		</main>
 		<script type="module" src="scripts/index.js"></script>

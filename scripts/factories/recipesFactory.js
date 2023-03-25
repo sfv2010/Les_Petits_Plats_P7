@@ -19,7 +19,7 @@ export function recipesFactory(recipes) {
 
         const boxRecipe = document.createElement("div");
         boxRecipe.classList.add("box");
-        // boxRecipe.tabIndex = "0";
+        boxRecipe.tabIndex = "0";
 
         const ulRecipe = document.createElement("ul");
 
