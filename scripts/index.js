@@ -42,6 +42,7 @@ function displayData(recipes) {
         listRecipe.classList.add("listRecipe");
         listRecipe.id = index;
         listRecipe.textContent = ingredient;
+        listRecipe.tabIndex = "0";
         ulIngredient.appendChild(listRecipe);
     });
 
@@ -57,6 +58,7 @@ function displayData(recipes) {
         listRecipe.classList.add("listAppliance");
         listRecipe.id = "appliance";
         listRecipe.textContent = appliance;
+        listRecipe.tabIndex = "0";
         ulAppliance.appendChild(listRecipe);
     });
 
@@ -78,6 +80,7 @@ function displayData(recipes) {
         listRecipe.classList.add("listRecipe");
         listRecipe.id = "ustensile";
         listRecipe.textContent = ustensile;
+        listRecipe.tabIndex = "0";
         ulUstensile.appendChild(listRecipe);
     });
 }

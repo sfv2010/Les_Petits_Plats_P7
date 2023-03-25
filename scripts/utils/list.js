@@ -43,4 +43,11 @@ export function showList() {
     imgUps.forEach((imgUp) =>
         imgUp.addEventListener("click", () => closeList())
     );
+    imgUps.forEach((imgUp) => {
+        imgUp.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" || e.key === "Enter") {
+                closeList(e);
+            }
+        });
+    });
 }
