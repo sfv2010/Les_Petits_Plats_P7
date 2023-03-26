@@ -79,12 +79,10 @@ button {
 .ingredients {
     background-color: #3282f7;
 }
-.appliances,
-#appliance {
+.appliances {
     background-color: #68d9a4;
 }
-.ustensiles,
-#ustensile {
+.ustensiles {
     background-color: #ed6454;
 }
 .dropDownUl {
@@ -130,7 +128,6 @@ button {
     background-repeat: no-repeat;
     background-position: 90%;
     background-size: 20px;
-    background-color: #3282f7;
     cursor: pointer;
     transition: 0.3s;
 }
