@@ -4,19 +4,18 @@ export function displayTag() {
 
     function toggleTag(e) {
         const tagRecipe = document.createElement("span");
-        console.log(e.target.id);
         tagRecipe.classList.add("tag");
         tagRecipe.textContent = e.target.textContent;
         tagRecipe.tabIndex = "0";
         tagsContainer.appendChild(tagRecipe);
-        if (e.target.id === "ingredient") {
-            tagRecipe.id = "tagIngredient";
+        if (e.target.classList.value === "listRecipe ingredients") {
+            tagRecipe.classList.add("ingredients");
         }
-        if (e.target.id === "appliance") {
-            tagRecipe.id = "tagAppliance";
+        if (e.target.classList.value === "listRecipe appliances") {
+            tagRecipe.classList.add("appliances");
         }
-        if (e.target.id === "ustensile") {
-            tagRecipe.id = "tagUstensile";
+        if (e.target.classList.value === "listRecipe ustensiles") {
+            tagRecipe.classList.add("ustensiles");
         }
 
         //close tag
