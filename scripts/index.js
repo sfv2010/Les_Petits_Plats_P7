@@ -1,6 +1,6 @@
 import { recipes } from "./data/recipes.js";
 import { recipesFactory } from "./factories/recipesFactory.js";
-import { searchInMainBar } from "./utils/searchInMainBar.js";
+//import { searchInMainBar } from "./utils/searchInMainBar.js";
 import { showList } from "./utils/list.js";
 import { displayTag } from "./utils/displayTag.js";
 
@@ -13,6 +13,12 @@ function displayData(recipes) {
     let arrayIngredients = [];
     let arrayAppliances = [];
     let arrayUstensils = [];
+
+    function capitalize(array) {
+        for (let i = 0; i < array.length; i++) {
+            array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
+        }
+    }
 
     //Loop through the recipes array and create a list for each
     //list Ingredient
@@ -31,11 +37,7 @@ function displayData(recipes) {
         const recipeCardDOM = recipeInfo.getRecipeCardDOM();
         recipeMain.appendChild(recipeCardDOM);
     });
-    for (let i in arrayIngredients) {
-        arrayIngredients[i] =
-            arrayIngredients[i].charAt(0).toUpperCase() +
-            arrayIngredients[i].slice(1);
-    }
+    capitalize(arrayIngredients);
     let sortIngredients = [...new Set(arrayIngredients)].sort();
     sortIngredients.forEach((ingredient, index) => {
         const listRecipe = document.createElement("li");
@@ -69,11 +71,7 @@ function displayData(recipes) {
             arrayUstensils.push(ustensilKey.replace(/[^a-z]/gi, ""));
         });
     });
-    for (let i in arrayUstensils) {
-        arrayUstensils[i] =
-            arrayUstensils[i].charAt(0).toUpperCase() +
-            arrayUstensils[i].slice(1);
-    }
+    capitalize(arrayUstensils);
 
     let sortUstensiles = [...new Set(arrayUstensils)].sort();
     sortUstensiles.forEach((ustensile, index) => {
@@ -92,7 +90,7 @@ function init() {
 }
 init();
 
-searchInMainBar();
+// searchInMainBar();
 showList();
 
 displayTag();
