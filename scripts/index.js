@@ -1,6 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { recipesFactory } from "./factories/recipesFactory.js";
 import { searchInMainBar } from "./utils/searchInMainBar.js";
+import { searchByKeyword } from "./utils/SearchByKeyword.js";
 import { showList } from "./utils/list.js";
 import { displayTag } from "./utils/displayTag.js";
 
@@ -91,6 +92,7 @@ function init() {
 init();
 
 searchInMainBar();
+searchByKeyword();
 showList();
 
 displayTag();
