@@ -1,3 +1,4 @@
+import { searchByKeyword } from "./searchByKeyword.js";
 export function displayTag() {
     const listRecipes = document.querySelectorAll(".listRecipe");
     const tagsContainer = document.querySelector(".tagsContainer");
@@ -45,4 +46,5 @@ export function displayTag() {
             }
         });
     });
+    searchByKeyword();
 }
