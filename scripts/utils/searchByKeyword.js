@@ -1,26 +1,38 @@
-// export function searchByKeyword() {
-//     const input = document.querySelectorAll(".searchBox");
-// 	// const ingredient = document.getElementById(".ingredient");
-// 	// const listAppliance = document.getElementById(".listAppliance");
-// 	// const listUstencile = document.getElementById(".listUstencile");
-//     //const cards = document.querySelectorAll("article");
+export function searchByKeyword() {
+    const ingredient = {
+        input: document.getElementById("inputIngredient"),
+        object: document.querySelectorAll(".listRecipe.ingredients"),
+    };
+    const appliance = {
+        input: document.getElementById("inputAppliance"),
+        object: document.querySelectorAll(".listRecipe.appliances"),
+    };
+    const ustensile = {
+        input: document.getElementById("inputUstensile"),
+        object: document.querySelectorAll(".listRecipe.ustensiles"),
+    };
 
-//     //Search based on input value
-//     // input.addEventListener("keyup", function (e) {
-//         // const searchInput = e.target.value;
-//         //     cards.forEach((card) => {
-//         //         if (
-//         //             card.textContent
-//         //                 .toLowerCase()
-//         //                 .includes(searchInput.toLowerCase())
-//         //         ) {
-//         //             card.classList.remove("hidden");
-//         //         } else {
-//         //             card.classList.add("hidden");
-//         //         }
-//         //     });
-//         //  if (searchInput.length === 0) {
-//         //     cards.forEach((card) => card.classList.remove("hidden"));
-//         // }
-//     });
-// }
+    function findInput(e, lists) {
+        const searchInput = e.target.value;
+        lists.object.forEach((list) => {
+            if (
+                list.textContent
+                    .toLowerCase()
+                    .includes(searchInput.toLowerCase())
+            ) {
+                list.classList.remove("hidden");
+            } else {
+                list.classList.add("hidden");
+            }
+        });
+    }
+    ingredient.input.addEventListener("keyup", function (e) {
+        findInput(e, ingredient);
+    });
+    appliance.input.addEventListener("keyup", function (e) {
+        findInput(e, appliance);
+    });
+    ustensile.input.addEventListener("keyup", function (e) {
+        findInput(e, ustensile);
+    });
+}
