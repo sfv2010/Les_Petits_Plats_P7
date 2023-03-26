@@ -1,20 +1,38 @@
 export function searchByKeyword() {
-    const inputIngredient = document.getElementById("inputIngredient");
-    const ingredients = document.querySelectorAll(".listRecipe.ingredients");
-    console.log(ingredients);
-    //Search based on input value
-    inputIngredient.addEventListener("keyup", function (e) {
+    const ingredient = {
+        input: document.getElementById("inputIngredient"),
+        object: document.querySelectorAll(".listRecipe.ingredients"),
+    };
+    const appliance = {
+        input: document.getElementById("inputAppliance"),
+        object: document.querySelectorAll(".listRecipe.appliances"),
+    };
+    const ustensile = {
+        input: document.getElementById("inputUstensile"),
+        object: document.querySelectorAll(".listRecipe.ustensiles"),
+    };
+
+    function findInput(e, list) {
         const searchInput = e.target.value;
-        for (let i = 0; i < ingredients.length; i++) {
+        for (let i = 0; i < list.object.length; i++) {
             if (
-                ingredients[i].textContent
+                list.object[i].textContent
                     .toLowerCase()
                     .includes(searchInput.toLowerCase())
             ) {
-                ingredients[i].classList.remove("hidden");
+                list.object[i].classList.remove("hidden");
             } else {
-                ingredients[i].classList.add("hidden");
+                list.object[i].classList.add("hidden");
             }
         }
+    }
+    ingredient.input.addEventListener("keyup", function (e) {
+        findInput(e, ingredient);
+    });
+    appliance.input.addEventListener("keyup", function (e) {
+        findInput(e, appliance);
+    });
+    ustensile.input.addEventListener("keyup", function (e) {
+        findInput(e, ustensile);
     });
 }
