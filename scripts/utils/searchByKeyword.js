@@ -1,26 +1,20 @@
 export function searchByKeyword() {
-    const inputs = document.querySelectorAll(".searchBox");
-    const listRecipe = document.querySelectorAll("listRecipe");
-    console.log(listRecipe);
+    const inputIngredient = document.getElementById("inputIngredient");
+    const ingredients = document.querySelectorAll(".listRecipe.ingredients");
+    console.log(ingredients);
     //Search based on input value
-    inputs.forEach((input) => {
-        input.addEventListener("keyup", function (e) {
-            const searchInput = e.target.value;
-
-            for (let i = 0; i < listRecipe.length; i++) {
-                if (
-                    listRecipe[i].textContent
-                        .toLowerCase()
-                        .includes(searchInput.toLowerCase())
-                ) {
-                    listRecipe[i].classList.add("hidden");
-                } else {
-                    listRecipe[i].classList.removed("hidden");
-                }
+    inputIngredient.addEventListener("keyup", function (e) {
+        const searchInput = e.target.value;
+        for (let i = 0; i < ingredients.length; i++) {
+            if (
+                ingredients[i].textContent
+                    .toLowerCase()
+                    .includes(searchInput.toLowerCase())
+            ) {
+                ingredients[i].classList.remove("hidden");
+            } else {
+                ingredients[i].classList.add("hidden");
             }
-            if (searchInput.length === 0) {
-                listRecipe.classList.remove("hidden");
-            }
-        });
+        }
     });
 }
