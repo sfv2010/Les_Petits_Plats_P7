@@ -12,23 +12,18 @@ export function searchInMainBar() {
         if (searchInput.length >= 3) {
             cards.forEach((card) => {
                 // console.log(card.classList.value);
-                if (
-                    card.textContent
-                        .toLowerCase()
-                        .includes(searchInput.toLowerCase())
-                ) {
-                    card.classList.remove("hidden");
-                    numHidden++;
-                } else {
-                    card.classList.add("hidden");
-                }
+
+                card.textContent
+                    .toLowerCase()
+                    .includes(searchInput.toLowerCase())
+                    ? (card.classList.remove("hidden"), numHidden++)
+                    : card.classList.add("hidden");
             });
-            if (numHidden === 0) {
-                noFound.textContent =
-                    " Aucune recette ne correspond à votre critère… vous pouvez chercher  « tarte aux pommes », « poisson », etc.";
-                noFound.classList.add("noFound");
-                main.appendChild(noFound);
-            }
+            numHidden === 0 &&
+                ((noFound.textContent =
+                    " Aucune recette ne correspond à votre critère… vous pouvez chercher  « tarte aux pommes », « poisson », etc."),
+                noFound.classList.add("noFound"),
+                main.appendChild(noFound));
         }
         if (searchInput.length === 0) {
             cards.forEach((card) => card.classList.remove("hidden"));
