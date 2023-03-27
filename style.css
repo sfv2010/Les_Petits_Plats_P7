@@ -227,3 +227,8 @@ ul {
 .hidden {
     display: none;
 }
+.noFound {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d04f4f;
+}
