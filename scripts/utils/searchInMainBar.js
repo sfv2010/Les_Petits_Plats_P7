@@ -8,7 +8,7 @@ export function searchInMainBar() {
     input.addEventListener("keyup", function (e) {
         const searchInput = e.target.value;
         let numHidden = 0;
-        noFound && (noFound.textContent = "");
+        noFound.textContent = "";
         if (searchInput.length >= 3) {
             cards.forEach((card) => {
                 // console.log(card.classList.value);
@@ -26,6 +26,7 @@ export function searchInMainBar() {
             if (numHidden === 0) {
                 noFound.textContent =
                     " Aucune recette ne correspond à votre critère… vous pouvez chercher  « tarte aux pommes », « poisson », etc.";
+                noFound.classList.add("noFound");
                 main.appendChild(noFound);
             }
         }
