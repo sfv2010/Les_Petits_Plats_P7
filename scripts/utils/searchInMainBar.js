@@ -26,7 +26,9 @@ export function searchInMainBar() {
             }
         }
         if (searchInput.length === 0) {
-            cards.forEach((card) => card.classList.remove("hidden"));
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].classList.remove("hidden");
+            }
         }
     });
 }
