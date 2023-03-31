@@ -1,4 +1,5 @@
-export function showList() {
+//Open/close list tag button
+export function openCloseList() {
     const buttonIngredient = document.querySelector(".buttonIngredient");
     const buttonAppliance = document.querySelector(".buttonAppliance");
     const buttonUstensile = document.querySelector(".buttonUstensile");
