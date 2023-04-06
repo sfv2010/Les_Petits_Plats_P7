@@ -1,3 +1,4 @@
+//function to changes the display of the list when input in the list tag button
 export function searchByInputKeyword() {
     const ingredient = {
         input: document.getElementById("inputIngredient"),
