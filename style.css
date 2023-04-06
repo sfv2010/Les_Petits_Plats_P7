@@ -228,6 +228,7 @@ ul {
     display: none;
 }
 .noFound {
+    margin-top: 50px;
     font-size: 20px;
     font-weight: bold;
     color: #d04f4f;
