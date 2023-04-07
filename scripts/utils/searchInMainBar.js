@@ -27,7 +27,7 @@ export function searchInMainBar(recipes) {
                 if (
                     recipe.name.toLowerCase().includes(searchInput) ||
                     recipe.ingredients.find((ingredients) => {
-                        ingredients.ingredient
+                        return ingredients.ingredient
                             .toLowerCase()
                             .includes(searchInput);
                     }) ||
