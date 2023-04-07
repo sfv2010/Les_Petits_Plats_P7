@@ -6,6 +6,7 @@ import {
     getApplianceList,
     getUstensileList,
 } from "./utils/recipeUtil.js";
+import { mainSearch } from "./utils/mainSearch.js";
 //import { openCloseList } from "./utils/openCloseList.js";
 //import { searchInMainBar } from "./utils/searchInMainBar.js";
 
@@ -67,6 +68,7 @@ function displayKeywordSearch() {
 
 displayMainData(recipes);
 displayKeywordSearch();
+mainSearch(recipes);
 //openCloseList();
 //searchInMainBar();
 
