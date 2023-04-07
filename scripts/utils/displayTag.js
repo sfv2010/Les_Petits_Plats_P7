@@ -37,8 +37,6 @@ export function displayTag(recipesData, type) {
             createTag("ustensiles");
         }
 
-        console.log(e.target.classList);
-
         //Sort the corresponding recipe when selecting from the list
         const noFound = document.createElement("div");
         const main = document.querySelector("main");
@@ -53,10 +51,9 @@ export function displayTag(recipesData, type) {
         targets.forEach((target) => {
             getTargetTag.push(target.textContent.toLowerCase());
         });
-        console.log(getTargetTag);
+        //console.log(getTargetTag);
         const itemArray = [];
-        console.log(searchByTag);
-        console.log(itemArray);
+        //console.log(searchByTag);
         recipesData.forEach((recipe) => {
             if (
                 recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
@@ -133,7 +130,7 @@ export function displayTag(recipesData, type) {
                 ulIngredient.textContent = "";
                 ulAppliance.textContent = "";
                 ulUstensile.textContent = "";
-                displayMainData(recipesData);
+                displayMainData(originalRecipeData);
                 displayIngredientData(originalRecipeData);
                 displayApplianceData(originalRecipeData);
                 displayUstensileData(originalRecipeData);
