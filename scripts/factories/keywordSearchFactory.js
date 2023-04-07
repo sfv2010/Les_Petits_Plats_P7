@@ -1,5 +1,4 @@
 // import { recipes } from "./data/recipes.js";
-//import { openCloseList } from "../utils/openCloseList";
 export function keywordSearchFactory() {
     function create(name, className, dataList) {
         const listCardDom = getListCardDOM();
@@ -28,10 +27,6 @@ export function keywordSearchFactory() {
             img.id = `imgUp${name}`;
             img.tabIndex = "0";
             const ulList = getDataList(name, className, dataList);
-            // const ulList = document.createElement("ul");
-            // ulList.classList.add("dropDownUl");
-            // ulList.classList.add(className);
-            // ulList.classList.add(`ul${name}`);
             searchByKeyword.appendChild(button);
             searchByKeyword.appendChild(dropDown);
             dropDown.appendChild(input);
@@ -41,8 +36,6 @@ export function keywordSearchFactory() {
             return searchByKeyword;
         }
         function openList() {
-            //const eTextContent = e.target.textContent;
-            //console.log(eTextContent);
             const button = listCardDom.querySelector(`.button${name}`);
             const dropDown = listCardDom.querySelector(`#dropDown${name}`);
             const dropDownOpenEvent = new CustomEvent("dropDownOpen");
