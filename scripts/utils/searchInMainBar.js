@@ -24,9 +24,10 @@ export function searchInMainBar(recipes) {
         if (searchInput.length >= 3) {
             for (let i = 0; i < recipes.length; i++) {
                 recipes[i].name.toLowerCase().includes(searchInput) ||
-                    recipes[i].ingredients[i].ingredient
-                        .toLowerCase()
-                        .includes(searchInput) ||
+                    // //for (let j = 0; j < recipes.length; j++) {
+                    // recipes[i].ingredients[i].ingredient
+                    //     .toLowerCase()
+                    //     .includes(searchInput) ||
                     (recipes[i].description
                         .toLowerCase()
                         .includes(searchInput) &&
@@ -38,7 +39,6 @@ export function searchInMainBar(recipes) {
                     " Aucune recette ne correspond à votre critère… vous pouvez chercher  « tarte aux pommes », « poisson », etc.";
                 noFound.classList.add("noFound"), main.appendChild(noFound);
             } else {
-                noFound.textContent = "";
                 noFound.textContent = "";
                 displayMainData(searchArray);
                 displayIngredientData(searchArray);
