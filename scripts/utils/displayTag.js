@@ -8,10 +8,8 @@ import { searchByInputKeyword } from "./searchByInputKeyword.js";
 import { recipes } from "../data/recipes.js";
 
 export function displayTag(recipesData, type) {
-    // export function displayTag(recipes,type) {
     const originalRecipeData = recipes;
     const listRecipes = document.querySelectorAll(`.listRecipe.${type}`);
-    //console.log(listRecipes);
     const tagsContainer = document.querySelector(".tagsContainer");
 
     //Functions to show(create), close, Sort tags
@@ -38,7 +36,6 @@ export function displayTag(recipesData, type) {
         }
 
         //Sort the corresponding recipe when selecting from the list
-        const noFound = document.createElement("div");
         const main = document.querySelector("main");
         const ulIngredient = document.querySelector(".ulIngredient");
         const ulAppliance = document.querySelector(".ulAppliance");
@@ -47,72 +44,81 @@ export function displayTag(recipesData, type) {
         //Put all the selected tags into an array
         const targets = document.querySelectorAll(".target");
         let getTargetTag = [];
-
         targets.forEach((target) => {
             getTargetTag.push(target.textContent.toLowerCase());
         });
-        //console.log(getTargetTag);
         const itemArray = [];
-        //console.log(searchByTag);
-        recipesData.forEach((recipe) => {
-            if (
-                recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
-                recipe.ingredients.find((ingredients) => {
-                    return ingredients.ingredient
-                        .toLowerCase()
-                        .includes(searchByTag.toLowerCase());
-                }) ||
-                recipe.description
-                    .toLowerCase()
-                    .includes(searchByTag.toLowerCase())
-            )
-                itemArray.push(recipe);
-        });
-        if (itemArray.length == 0) {
-            displayMainData(recipesData);
-            displayIngredientData(recipesData);
-            displayApplianceData(recipesData);
-            displayUstensileData(recipesData);
-
-            noFound.textContent =
-                " Aucune recette ne correspond à votre critère… vous pouvez chercher  « tarte aux pommes », « poisson », etc.";
-            noFound.classList.add("noFound");
-            main.appendChild(noFound);
-        } else {
-            noFound.textContent = "";
-            main.textContent = "";
-            ulIngredient.textContent = "";
-            ulAppliance.textContent = "";
-            ulUstensile.textContent = "";
-            displayMainData(itemArray);
-            displayIngredientData(itemArray);
-            displayApplianceData(itemArray);
-            displayUstensileData(itemArray);
+        for (let i = 0; i < recipesData.length; i++) {
+            const recipe = recipesData[i];
+            for (let j = 0; j < recipe.ingredients.length; j++) {
+                for (let k = 0; k < recipe.ustensils.length; k++) {
+                    if (
+                        recipe.name
+                            .toLowerCase()
+                            .includes(searchByTag.toLowerCase()) ||
+                        recipe.ingredients[j].ingredient
+                            .toLowerCase()
+                            .includes(searchByTag.toLowerCase()) ||
+                        recipe.description
+                            .toLowerCase()
+                            .includes(searchByTag.toLowerCase()) ||
+                        recipe.appliance
+                            .toLowerCase()
+                            .includes(searchByTag.toLowerCase()) ||
+                        recipe.ustensils[k]
+                            .toLowerCase()
+                            .includes(searchByTag.toLowerCase())
+                    )
+                        itemArray.push(recipe);
+                }
+            }
         }
-        console.log(itemArray);
-        // console.log(itemArray.length);
+        // recipesData.forEach((recipe) => {
+        //     if (
+        //         recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
+        //         recipe.ingredients.find((ingredients) => {
+        //             return ingredients.ingredient
+        //                 .toLowerCase()
+        //                 .includes(searchByTag.toLowerCase());
+        //         }) ||
+        //         recipe.description
+        //             .toLowerCase()
+        //             .includes(searchByTag.toLowerCase()) ||
+        //         recipe.appliance
+        //             .toLowerCase()
+        //             .includes(searchByTag.toLowerCase()) ||
+        //         recipe.ustensils.find((ustensil) => {
+        //             return ustensil
+        //                 .toLowerCase()
+        //                 .includes(searchByTag.toLowerCase());
+        //         })
+        //     )
+        //         itemArray.push(recipe);
+        // });
+        main.textContent = "";
+        ulIngredient.textContent = "";
+        ulAppliance.textContent = "";
+        ulUstensile.textContent = "";
+        displayMainData(itemArray);
+        displayIngredientData(itemArray);
+        displayApplianceData(itemArray);
+        displayUstensileData(itemArray);
+
         //close tag
         function closeTag(e) {
             //e.stopPropagation();
             const targetToClose = e.target;
-            console.log(targetToClose);
-
             e.target.remove();
+            main.textContent = "";
+            ulIngredient.textContent = "";
+            ulAppliance.textContent = "";
+            ulUstensile.textContent = "";
             displayMainData(recipesData);
             displayIngredientData(recipesData);
             displayApplianceData(recipesData);
             displayUstensileData(recipesData);
 
-            // const targets = document.querySelectorAll(".target");
-            // let getTargetTag = [];
-
-            // targets.forEach((target) => {
-            //     console.log(target.textContent.toLowerCase());
-            //     getTargetTag.push(target.textContent.toLowerCase());
-            // });
-            // console.log(getTargetTag);
-
-            //Remove targetToClose from array
+            //Check if the target class is added to the tag.
             let idx = getTargetTag.indexOf(
                 targetToClose.textContent.toLowerCase()
             );
@@ -134,7 +140,6 @@ export function displayTag(recipesData, type) {
                 displayIngredientData(originalRecipeData);
                 displayApplianceData(originalRecipeData);
                 displayUstensileData(originalRecipeData);
-                // getTargetTag.splice(0);
             }
         }
         const tags = document.querySelectorAll(".tag");

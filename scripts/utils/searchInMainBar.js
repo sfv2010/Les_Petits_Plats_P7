@@ -23,15 +23,23 @@ export function searchInMainBar(recipes) {
         // noFound.textContent = "";
         if (searchInput.length >= 3) {
             for (let i = 0; i < recipes.length; i++) {
-                recipes[i].name.toLowerCase().includes(searchInput) ||
-                    // //for (let j = 0; j < recipes.length; j++) {
-                    // recipes[i].ingredients[i].ingredient
-                    //     .toLowerCase()
-                    //     .includes(searchInput) ||
-                    (recipes[i].description
-                        .toLowerCase()
-                        .includes(searchInput) &&
-                        searchArray.push(recipes[i]));
+                const recipe = recipes[i];
+                for (let j = 0; j < recipe.ingredients.length; j++) {
+                    if (
+                        recipe.name.toLowerCase().includes(searchInput) ||
+                        recipe.ingredients[j].ingredient
+                            .toLowerCase()
+                            .includes(searchInput) ||
+                        recipe.description
+                            .toLowerCase()
+                            .includes(searchInput) ||
+                        recipe.appliance.toLowerCase().includes(searchInput) ||
+                        recipe.ustensils.find((ustensil) => {
+                            return ustensil.toLowerCase().includes(searchInput);
+                        })
+                    )
+                        searchArray.push(recipe);
+                }
             }
 
             if (searchArray.length === 0) {
