@@ -40,17 +40,7 @@ export function displayTag(recipesData, type) {
         const ulIngredient = document.querySelector(".ulIngredient");
         const ulAppliance = document.querySelector(".ulAppliance");
         const ulUstensile = document.querySelector(".ulUstensile");
-
-        //Put all the selected tags into an array
-        const targets = document.querySelectorAll(".target");
-        let getTargetTag = [];
-
-        targets.forEach((target) => {
-            getTargetTag.push(target.textContent.toLowerCase());
-        });
         const itemArray = [];
-        //console.log(searchByTag);
-        //console.log(itemArray);
         recipesData.forEach((recipe) => {
             if (
                 recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
@@ -73,7 +63,6 @@ export function displayTag(recipesData, type) {
             )
                 itemArray.push(recipe);
         });
-
         main.textContent = "";
         ulIngredient.textContent = "";
         ulAppliance.textContent = "";
@@ -82,6 +71,13 @@ export function displayTag(recipesData, type) {
         displayIngredientData(itemArray);
         displayApplianceData(itemArray);
         displayUstensileData(itemArray);
+
+        //Put all the selected tags into an array
+        const targets = document.querySelectorAll(".target");
+        let getTargetTag = [];
+        targets.forEach((target) => {
+            getTargetTag.push(target.textContent.toLowerCase());
+        });
 
         //Close tag
         function closeTag(e) {
