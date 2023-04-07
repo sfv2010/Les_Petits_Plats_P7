@@ -55,10 +55,18 @@ export function displayIngredientData(recipes) {
 }
 //list Appliance
 export function displayApplianceData(recipes) {
+    const listTags = document.querySelectorAll(".tag.target.appliances");
     const ulAppliance = document.querySelector(".ulAppliance");
     let arrayAppliances = [];
     recipes.forEach((recipe) => {
-        arrayAppliances.push(recipe.appliance);
+        if (
+            !Array.from(listTags).find((tag) => {
+                return tag.textContent
+                    .toLowerCase()
+                    .includes(recipe.appliance.toLowerCase());
+            })
+        )
+            arrayAppliances.push(recipe.appliance);
     });
     let sortAppliances = [...new Set(arrayAppliances)].sort();
     sortAppliances.forEach((appliance) => {
@@ -71,15 +79,23 @@ export function displayApplianceData(recipes) {
     });
     displayTag(recipes, "appliances");
 }
+//list Ustensile
 export function displayUstensileData(recipes) {
+    const listTags = document.querySelectorAll(".tag.target.ustensiles");
     const ulUstensile = document.querySelector(".ulUstensile");
     let arrayUstensils = [];
     recipes.forEach((recipe) => {
-        recipe.ustensils.forEach((ustensilKey) => {
-            arrayUstensils.push(ustensilKey.replace(/[^a-z]/gi, ""));
+        recipe.ustensils.forEach((ustensil) => {
+            if (
+                !Array.from(listTags).find((tag) => {
+                    return tag.textContent
+                        .toLowerCase()
+                        .includes(ustensil.toLowerCase());
+                })
+            )
+                arrayUstensils.push(ustensil);
         });
     });
-    //list Ustensile
     capitalize(arrayUstensils);
     let sortUstensiles = [...new Set(arrayUstensils)].sort();
     sortUstensiles.forEach((ustensile) => {
