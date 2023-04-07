@@ -24,13 +24,19 @@ export function searchInMainBar(recipes) {
 
         if (searchInput.length >= 3) {
             recipes.forEach((recipe) => {
-                (recipe.name.toLowerCase().includes(searchInput) ||
-                    recipe.ingredients.forEach((ingredients) => {
+                if (
+                    recipe.name.toLowerCase().includes(searchInput) ||
+                    recipe.ingredients.find((ingredients) => {
                         ingredients.ingredient
                             .toLowerCase()
                             .includes(searchInput);
                     }) ||
-                    recipe.description.toLowerCase().includes(searchInput)) &&
+                    recipe.description.toLowerCase().includes(searchInput) ||
+                    recipe.appliance.toLowerCase().includes(searchInput) ||
+                    recipe.ustensils.find((ustensil) => {
+                        return ustensil.toLowerCase().includes(searchInput);
+                    })
+                )
                     searchArray.push(recipe);
             });
             if (searchArray.length === 0) {
