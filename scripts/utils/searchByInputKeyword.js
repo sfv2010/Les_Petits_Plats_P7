@@ -1,4 +1,4 @@
-export function searchByKeyword() {
+export function searchByInputKeyword() {
     const ingredient = {
         input: document.getElementById("inputIngredient"),
         object: document.querySelectorAll(".listRecipe.ingredients"),
