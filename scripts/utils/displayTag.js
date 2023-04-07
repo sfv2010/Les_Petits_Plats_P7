@@ -40,13 +40,6 @@ export function displayTag(recipesData, type) {
         const ulIngredient = document.querySelector(".ulIngredient");
         const ulAppliance = document.querySelector(".ulAppliance");
         const ulUstensile = document.querySelector(".ulUstensile");
-
-        //Put all the selected tags into an array
-        const targets = document.querySelectorAll(".target");
-        let getTargetTag = [];
-        targets.forEach((target) => {
-            getTargetTag.push(target.textContent.toLowerCase());
-        });
         const itemArray = [];
         for (let i = 0; i < recipesData.length; i++) {
             const recipe = recipesData[i];
@@ -73,28 +66,12 @@ export function displayTag(recipesData, type) {
                 }
             }
         }
-        // recipesData.forEach((recipe) => {
-        //     if (
-        //         recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
+
         //         recipe.ingredients.find((ingredients) => {
         //             return ingredients.ingredient
         //                 .toLowerCase()
         //                 .includes(searchByTag.toLowerCase());
-        //         }) ||
-        //         recipe.description
-        //             .toLowerCase()
-        //             .includes(searchByTag.toLowerCase()) ||
-        //         recipe.appliance
-        //             .toLowerCase()
-        //             .includes(searchByTag.toLowerCase()) ||
-        //         recipe.ustensils.find((ustensil) => {
-        //             return ustensil
-        //                 .toLowerCase()
-        //                 .includes(searchByTag.toLowerCase());
         //         })
-        //     )
-        //         itemArray.push(recipe);
-        // });
         main.textContent = "";
         ulIngredient.textContent = "";
         ulAppliance.textContent = "";
@@ -103,6 +80,13 @@ export function displayTag(recipesData, type) {
         displayIngredientData(itemArray);
         displayApplianceData(itemArray);
         displayUstensileData(itemArray);
+
+        //Put all the selected tags into an array
+        const targets = document.querySelectorAll(".target");
+        let getTargetTag = [];
+        targets.forEach((target) => {
+            getTargetTag.push(target.textContent.toLowerCase());
+        });
 
         //close tag
         function closeTag(e) {
