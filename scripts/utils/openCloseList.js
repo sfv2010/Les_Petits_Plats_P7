@@ -22,7 +22,7 @@ export function openCloseList() {
         for (let button of buttons) button.style.display = "block";
         for (let dropDown of dropDowns) dropDown.style.display = "none";
 
-        if (eTextContent === "Ingredient") {
+        if (eTextContent === "Ingredients") {
             buttonIngredient.style.display = "none";
             dropDownIngredient.style.display = "block";
         } else if (eTextContent === "Appareils") {
