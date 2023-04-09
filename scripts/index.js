@@ -94,7 +94,7 @@ export function displayUstensileData(recipes) {
                         .includes(ustensil.toLowerCase());
                 })
             )
-                arrayUstensils.push(ustensil);
+                arrayUstensils.push(ustensil.replace(/[(]\d[)]/gi, ""));
         });
     });
     //list Ustensile
