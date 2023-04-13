@@ -5,10 +5,10 @@ import {
     displayUstensileData,
 } from "../index.js";
 import { searchByInputKeyword } from "./searchByInputKeyword.js";
-import { recipes } from "../data/recipes.js";
+//import { recipes } from "../data/recipes.js";
 
 export function displayTag(recipesData, type) {
-    const originalRecipeData = recipes;
+    //const originalRecipeData = recipes;
     const listRecipes = document.querySelectorAll(`.listRecipe.${type}`);
     const tagsContainer = document.querySelector(".tagsContainer");
 
@@ -115,17 +115,28 @@ export function displayTag(recipesData, type) {
             if (idx >= 0) {
                 getTargetTag.splice(idx, 1);
             }
-
-            if (getTargetTag.length === 0) {
-                main.textContent = "";
-                ulIngredient.textContent = "";
-                ulAppliance.textContent = "";
-                ulUstensile.textContent = "";
-                displayMainData(originalRecipeData);
-                displayIngredientData(originalRecipeData);
-                displayApplianceData(originalRecipeData);
-                displayUstensileData(originalRecipeData);
-            }
+            console.log(recipesData.length);
+            // if (getTargetTag.length === 0) {
+            //     main.textContent = "";
+            //     ulIngredient.textContent = "";
+            //     ulAppliance.textContent = "";
+            //     ulUstensile.textContent = "";
+            //     displayMainData(recipesData);
+            //     displayIngredientData(originalRecipeData);
+            //     displayApplianceData(originalRecipeData);
+            //     displayUstensileData(originalRecipeData);
+            // }
+            // if (getTargetTag.length === 0 && recipesData.length === 0) {
+            //     console.log(recipesData.length);
+            //     main.textContent = "";
+            //     ulIngredient.textContent = "";
+            //     ulAppliance.textContent = "";
+            //     ulUstensile.textContent = "";
+            //     displayMainData(originalRecipeData);
+            //     displayIngredientData(originalRecipeData);
+            //     displayApplianceData(originalRecipeData);
+            //     displayUstensileData(originalRecipeData);
+            // }
         }
         const tags = document.querySelectorAll(".tag");
         tags.forEach((tag) => {
