@@ -66,7 +66,6 @@ export function displayApplianceData(recipes) {
         )
             arrayAppliances.push(recipe.appliance);
     });
-    console.log(listTags);
     let sortAppliances = [...new Set(arrayAppliances)].sort();
     ulAppliance.textContent = "";
     sortAppliances.forEach((appliance) => {
@@ -83,7 +82,6 @@ export function displayUstensileData(recipes) {
     const listTags = document.querySelectorAll(".tag.target.ustensiles");
     const ulUstensile = document.querySelector(".ulUstensile");
     let arrayUstensils = [];
-    console.log(listTags);
 
     recipes.forEach((recipe) => {
         recipe.ustensils.forEach((ustensil) => {
