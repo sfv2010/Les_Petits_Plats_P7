@@ -43,35 +43,41 @@ export function displayTag(recipesData, type) {
         const itemArray = [];
         for (let i = 0; i < recipesData.length; i++) {
             const recipe = recipesData[i];
-            for (let j = 0; j < recipe.ingredients.length; j++) {
-                for (let k = 0; k < recipe.ustensils.length; k++) {
+            //loop for appliance lists
+            if (
+                recipe.appliance
+                    .toLowerCase()
+                    .includes(searchByTag.toLowerCase())
+            ) {
+                itemArray.push(recipe);
+            } else {
+                let keepRecipe = false;
+                for (let j = 0; j < recipe.ingredients.length; j++) {
+                    //loop for ingredient lists
                     if (
-                        recipe.name
-                            .toLowerCase()
-                            .includes(searchByTag.toLowerCase()) ||
                         recipe.ingredients[j].ingredient
                             .toLowerCase()
-                            .includes(searchByTag.toLowerCase()) ||
-                        recipe.description
-                            .toLowerCase()
-                            .includes(searchByTag.toLowerCase()) ||
-                        recipe.appliance
-                            .toLowerCase()
-                            .includes(searchByTag.toLowerCase()) ||
-                        recipe.ustensils[k]
-                            .toLowerCase()
                             .includes(searchByTag.toLowerCase())
-                    )
-                        itemArray.push(recipe);
+                    ) {
+                        keepRecipe = true;
+                    }
+                }
+                if (keepRecipe === false) {
+                    for (let k = 0; k < recipe.ustensils.length; k++) {
+                        //loop for ustensils lists
+                        if (
+                            recipe.ustensils[k]
+                                .toLowerCase()
+                                .includes(searchByTag.toLowerCase())
+                        )
+                            itemArray.push(recipe);
+                    }
+                } else {
+                    itemArray.push(recipe);
                 }
             }
         }
 
-        //         recipe.ingredients.find((ingredients) => {
-        //             return ingredients.ingredient
-        //                 .toLowerCase()
-        //                 .includes(searchByTag.toLowerCase());
-        //         })
         main.textContent = "";
         ulIngredient.textContent = "";
         ulAppliance.textContent = "";
