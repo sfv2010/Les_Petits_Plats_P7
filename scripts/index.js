@@ -24,7 +24,6 @@ export function displayMainData(recipes) {
 //list Ingredient
 export function displayIngredientData(recipes) {
     const listTags = document.querySelectorAll(".tag.target.ingredients");
-    console.log(listTags);
     const ulIngredient = document.querySelector(".ulIngredient");
     let arrayIngredients = [];
     recipes.forEach((recipe) => {
@@ -41,7 +40,6 @@ export function displayIngredientData(recipes) {
     });
     capitalize(arrayIngredients);
     let sortIngredients = [...new Set(arrayIngredients)].sort();
-    //console.log(sortIngredients);
     ulIngredient.textContent = "";
     sortIngredients.forEach((ingredient) => {
         const listRecipe = document.createElement("li");
