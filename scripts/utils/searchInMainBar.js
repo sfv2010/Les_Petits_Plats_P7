@@ -20,25 +20,25 @@ export function searchInMainBar(recipes) {
         ulAppliance.textContent = "";
         ulUstensile.textContent = "";
         let searchArray = [];
-        // noFound.textContent = "";
         if (searchInput.length >= 3) {
             for (let i = 0; i < recipes.length; i++) {
                 const recipe = recipes[i];
-                for (let j = 0; j < recipe.ingredients.length; j++) {
-                    if (
-                        recipe.name.toLowerCase().includes(searchInput) ||
-                        recipe.ingredients[j].ingredient
-                            .toLowerCase()
-                            .includes(searchInput) ||
-                        recipe.description
-                            .toLowerCase()
-                            .includes(searchInput) ||
-                        recipe.appliance.toLowerCase().includes(searchInput) ||
-                        recipe.ustensils.find((ustensil) => {
-                            return ustensil.toLowerCase().includes(searchInput);
-                        })
-                    )
-                        searchArray.push(recipe);
+                //loop for description and name lists
+                if (
+                    recipe.name.toLowerCase().includes(searchInput) ||
+                    recipe.description.toLowerCase().includes(searchInput)
+                ) {
+                    searchArray.push(recipe);
+                } else {
+                    for (let j = 0; j < recipe.ingredients.length; j++) {
+                        //loop for ingredients lists
+                        if (
+                            recipe.ingredients[j].ingredient
+                                .toLowerCase()
+                                .includes(searchInput)
+                        )
+                            searchArray.push(recipe);
+                    }
                 }
             }
 
@@ -59,16 +59,5 @@ export function searchInMainBar(recipes) {
             displayApplianceData(recipes);
             displayUstensileData(recipes);
         }
-    });
-    //Initialize the screen when pressing the cross button of input
-    input.addEventListener("search", function () {
-        main.textContent = "";
-        ulIngredient.textContent = "";
-        ulAppliance.textContent = "";
-        ulUstensile.textContent = "";
-        displayMainData(recipes);
-        displayIngredientData(recipes);
-        displayApplianceData(recipes);
-        displayUstensileData(recipes);
     });
 }
