@@ -31,11 +31,12 @@ export function searchInMainBar(recipes) {
                             .toLowerCase()
                             .includes(searchInput);
                     }) ||
-                    recipe.description.toLowerCase().includes(searchInput) ||
-                    recipe.appliance.toLowerCase().includes(searchInput) ||
-                    recipe.ustensils.find((ustensil) => {
-                        return ustensil.toLowerCase().includes(searchInput);
-                    })
+                    recipe.description.toLowerCase().includes(searchInput)
+                    // ||
+                    // recipe.appliance.toLowerCase().includes(searchInput) ||
+                    // recipe.ustensils.find((ustensil) => {
+                    //     return ustensil.toLowerCase().includes(searchInput);
+                    // })
                 )
                     searchArray.push(recipe);
             });

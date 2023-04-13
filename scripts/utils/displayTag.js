@@ -43,15 +43,15 @@ export function displayTag(recipesData, type) {
         const itemArray = [];
         recipesData.forEach((recipe) => {
             if (
-                recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
+                // recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
                 recipe.ingredients.find((ingredients) => {
                     return ingredients.ingredient
                         .toLowerCase()
                         .includes(searchByTag.toLowerCase());
                 }) ||
-                recipe.description
-                    .toLowerCase()
-                    .includes(searchByTag.toLowerCase()) ||
+                // recipe.description
+                //     .toLowerCase()
+                //     .includes(searchByTag.toLowerCase()) ||
                 recipe.appliance
                     .toLowerCase()
                     .includes(searchByTag.toLowerCase()) ||
