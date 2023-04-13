@@ -112,14 +112,9 @@ export function displayTag(recipesData, type) {
             let idx = getTargetTag.indexOf(
                 targetToClose.textContent.toLowerCase()
             );
-            console.log(targetToClose.textContent.toLowerCase());
-            console.log(getTargetTag);
-            console.log(idx);
             if (idx >= 0) {
                 getTargetTag.splice(idx, 1);
-                console.log(idx);
             }
-            console.log(getTargetTag);
 
             if (getTargetTag.length === 0) {
                 main.textContent = "";
