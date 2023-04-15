@@ -5,10 +5,10 @@ import {
     displayUstensileData,
 } from "../index.js";
 import { searchByInputKeyword } from "./searchByInputKeyword.js";
-import { recipes } from "../data/recipes.js";
+//import { recipes } from "../data/recipes.js";
 
 export function displayTag(recipesData, type) {
-    const originalRecipeData = recipes;
+    //const originalRecipeData = recipes;
     const listRecipes = document.querySelectorAll(`.listRecipe.${type}`);
     const tagsContainer = document.querySelector(".tagsContainer");
 
@@ -26,14 +26,7 @@ export function displayTag(recipesData, type) {
             tagsContainer.appendChild(tagRecipe);
             return tagRecipe;
         }
-
-        if (e.target.classList.value === "listRecipe ingredients") {
-            createTag("ingredients");
-        } else if (e.target.classList.value === "listRecipe appliances") {
-            createTag("appliances");
-        } else if (e.target.classList.value === "listRecipe ustensiles") {
-            createTag("ustensiles");
-        }
+        createTag(type);
 
         //Sort the corresponding recipe when selecting from the list
         const main = document.querySelector("main");
@@ -43,15 +36,11 @@ export function displayTag(recipesData, type) {
         const itemArray = [];
         recipesData.forEach((recipe) => {
             if (
-                // recipe.name.toLowerCase().includes(searchByTag.toLowerCase()) ||
                 recipe.ingredients.find((ingredients) => {
                     return ingredients.ingredient
                         .toLowerCase()
                         .includes(searchByTag.toLowerCase());
                 }) ||
-                // recipe.description
-                //     .toLowerCase()
-                //     .includes(searchByTag.toLowerCase()) ||
                 recipe.appliance
                     .toLowerCase()
                     .includes(searchByTag.toLowerCase()) ||
@@ -80,8 +69,81 @@ export function displayTag(recipesData, type) {
         });
 
         //Close tag
+        // function closeTag(e) {
+        //     const targetToClose = e.target;
+        //     e.target.remove();
+        //     // main.textContent = "";
+        //     // ulIngredient.textContent = "";
+        //     // ulAppliance.textContent = "";
+        //     // ulUstensile.textContent = "";
+        //     // displayMainData(recipesData);
+        //     // displayIngredientData(recipesData);
+        //     // displayApplianceData(recipesData);
+        //     // displayUstensileData(recipesData);
+
+        //     console.log(getTargetTag.length);
+        //     console.log(itemArray.length);
+        //     //Check if the target class is added to the tag.
+        //     let idx = getTargetTag.indexOf(
+        //         targetToClose.textContent.toLowerCase()
+        //     );
+
+        //     if (idx >= 0) {
+        //         getTargetTag.splice(idx, 1);
+        //     }
+
+        //     const searchByTagArray = [];
+        //     console.log(getTargetTag);
+        //     originalRecipeData.forEach((recipe) => {
+        //         if (
+        //             getTargetTag.forEach((targetTag) => {
+        //                 recipe.ingredients.find((ingredients) => {
+        //                     console.log(targetTag);
+        //                     return ingredients.ingredient
+        //                         .toLowerCase()
+        //                         .includes(targetTag.toLowerCase());
+        //                 });
+        //             }) ||
+        //             getTargetTag.find((targetTag) => {
+        //                 return recipe.appliance
+        //                     .toLowerCase()
+        //                     .includes(targetTag.toLowerCase());
+        //             }) ||
+        //             recipe.ustensils.forEach((ustensil) => {
+        //                 getTargetTag.forEach((targetTag) => {
+        //                     return ustensil
+        //                         .toLowerCase()
+        //                         .includes(targetTag.toLowerCase());
+        //                 });
+        //             })
+        //         )
+        //             searchByTagArray.push(recipe);
+        //     });
+        //     console.log(searchByTagArray);
+        //     main.textContent = "";
+        //     ulIngredient.textContent = "";
+        //     ulAppliance.textContent = "";
+        //     ulUstensile.textContent = "";
+        //     displayMainData(searchByTagArray);
+        //     displayIngredientData(searchByTagArray);
+        //     displayApplianceData(searchByTagArray);
+        //     displayUstensileData(searchByTagArray);
+
+        //     // console.log(idx);
+        //     // console.log(getTargetTag);
+        // }
+        // const tags = document.querySelectorAll(".tag");
+        // tags.forEach((tag) => {
+        //     tag.addEventListener("click", closeTag);
+        //     tag.addEventListener("keydown", (e) => {
+        //         if (e.key === "Escape" || e.key === "Enter") {
+        //             closeTag(e);
+        //         }
+        //     });
+        // });
+        //Close tag--------------------
         function closeTag(e) {
-            const targetToClose = e.target;
+            //const targetToClose = e.target;
             e.target.remove();
             main.textContent = "";
             ulIngredient.textContent = "";
@@ -93,25 +155,23 @@ export function displayTag(recipesData, type) {
             displayUstensileData(recipesData);
 
             //Check if the target class is added to the tag.
-            let idx = getTargetTag.indexOf(
-                targetToClose.textContent.toLowerCase()
-            );
+            // let idx = getTargetTag.indexOf(
+            //     targetToClose.textContent.toLowerCase()
+            // );
 
-            if (idx >= 0) {
-                getTargetTag.splice(idx, 1);
-            }
-            if (getTargetTag.length === 0) {
-                main.textContent = "";
-                ulIngredient.textContent = "";
-                ulAppliance.textContent = "";
-                ulUstensile.textContent = "";
-                displayMainData(originalRecipeData);
-                displayIngredientData(originalRecipeData);
-                displayApplianceData(originalRecipeData);
-                displayUstensileData(originalRecipeData);
-            }
-            // console.log(idx);
-            // console.log(getTargetTag);
+            // if (idx >= 0) {
+            //     getTargetTag.splice(idx, 1);
+            // }
+            // if (getTargetTag.length === 0) {
+            //     //main.textContent = "";
+            //     ulIngredient.textContent = "";
+            //     ulAppliance.textContent = "";
+            //     ulUstensile.textContent = "";
+            //     //displayMainData(originalRecipeData);
+            //     displayIngredientData(originalRecipeData);
+            //     displayApplianceData(originalRecipeData);
+            //     displayUstensileData(originalRecipeData);
+            // }
         }
         const tags = document.querySelectorAll(".tag");
         tags.forEach((tag) => {
@@ -122,6 +182,7 @@ export function displayTag(recipesData, type) {
                 }
             });
         });
+        //------------close--------------
     }
 
     listRecipes.forEach((listRecipe) => {
