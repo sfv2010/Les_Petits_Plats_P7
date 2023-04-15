@@ -32,11 +32,6 @@ export function searchInMainBar(recipes) {
                             .includes(searchInput);
                     }) ||
                     recipe.description.toLowerCase().includes(searchInput)
-                    // ||
-                    // recipe.appliance.toLowerCase().includes(searchInput) ||
-                    // recipe.ustensils.find((ustensil) => {
-                    //     return ustensil.toLowerCase().includes(searchInput);
-                    // })
                 )
                     searchArray.push(recipe);
             });
@@ -58,16 +53,5 @@ export function searchInMainBar(recipes) {
             displayApplianceData(recipes);
             displayUstensileData(recipes);
         }
-    });
-    //Initialize the screen when pressing the cross button of input
-    input.addEventListener("search", function () {
-        main.textContent = "";
-        ulIngredient.textContent = "";
-        ulAppliance.textContent = "";
-        ulUstensile.textContent = "";
-        displayMainData(recipes);
-        displayIngredientData(recipes);
-        displayApplianceData(recipes);
-        displayUstensileData(recipes);
     });
 }
