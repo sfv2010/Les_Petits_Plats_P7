@@ -38,7 +38,8 @@ export function displayIngredientData(recipes) {
     //When selected in the list
     recipes.forEach((recipe) => {
         recipe.ingredients.forEach((ingredientKey) => {
-            // If matching tag is not found, add ingredient name to the array??
+            // If matching tag is not found, add ingredient name to the array.
+            //Check if the targetTags element has an element tag.textContent contains the value of ingredientKey.ingredient, and returns false if it matches, true if not matches.
             if (
                 !Array.from(targetTags).find((tag) => {
                     return tag.textContent
