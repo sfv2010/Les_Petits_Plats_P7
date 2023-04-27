@@ -1,5 +1,6 @@
 import { searchTagsInList } from "./searchTagsInList.js";
 import { searchInMainBar } from "./searchInMainBar.js";
+import { emptyInput } from "./util.js";
 
 function createTag(searchByTag, className) {
     const tagsContainer = document.querySelector(".tagsContainer");
@@ -24,6 +25,9 @@ export function toggleTag(e, type) {
     const searchByTag = e.target.textContent;
 
     createTag(searchByTag, type);
+
+    //When the tag is selected, if characters have already been entered into the tag input, delete them.
+    emptyInput();
 
     searchInMainBar();
 }

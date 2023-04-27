@@ -5,6 +5,7 @@ import {
     displayAppliancesTagsList,
     displayUstensilesTagsList,
 } from "./tagsList.js";
+import { emptyInput } from "./util.js";
 
 // Function to filter recipes by value in the input
 export function searchInMainBar() {
@@ -15,6 +16,9 @@ export function searchInMainBar() {
     //Search based on input value
     const noFound = document.createElement("div");
     noFound.textContent = "";
+
+    //When entering characters into the input of main, if characters have already been entered into the tag input, delete them.
+    emptyInput();
 
     // Init a new array to keep recipes according to the input value
     let searchArray = [];
