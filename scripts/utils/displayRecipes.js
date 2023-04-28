@@ -3,7 +3,7 @@ import { recipesFactory } from "../factories/recipesFactory.js";
 //display recipes cards
 export function displayRecipes(recipes) {
     const main = document.querySelector("main");
-    // Empty the recipes already diplayed
+    // Empty the recipes already displayed
     main.textContent = "";
 
     recipes.forEach((recipe) => {
