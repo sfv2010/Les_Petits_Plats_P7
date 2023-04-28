@@ -18,17 +18,6 @@ export function searchTagsInList() {
                 list[i].classList.add("hidden");
             }
         }
-        // lists.forEach((list) => {
-        //     if (
-        //         list.textContent
-        //             .toLowerCase()
-        //             .includes(searchInput.toLowerCase())
-        //     ) {
-        //         list.classList.remove("hidden");
-        //     } else {
-        //         list.classList.add("hidden");
-        //     }
-        // });
     }
     ingredient.addEventListener("keyup", function (e) {
         findInput(e, document.querySelectorAll(".listRecipe.ingredients"));
