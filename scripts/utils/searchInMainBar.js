@@ -23,7 +23,7 @@ export function searchInMainBar() {
     //When entering characters into the input of main, if characters have already been entered into the tag input, delete them.
     emptyInput();
 
-    // If length of the value is greather than 3
+    // If length of the value is greater than 3
     if (searchInput.length >= 3) {
         // Filter the recipes in name, description and ingredients
         for (let i = 0; i < recipes.length; i++) {
