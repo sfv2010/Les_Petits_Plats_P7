@@ -46,20 +46,6 @@ export function displayIngredientsTagsList(recipes) {
         }
     }
 
-    // recipes.forEach((recipe) => {
-    //     recipe.ingredients.forEach((ingredientKey) => {
-    //         // If matching tag is not found, add ingredient name to the array
-    //         if (
-    //             !Array.from(targetTags).find((tag) => {
-    //                 return tag.textContent
-    //                     .toLowerCase()
-    //                     .includes(ingredientKey.ingredient.toLowerCase());
-    //             })
-    //         )
-    //             arrayIngredients.push(ingredientKey.ingredient.toLowerCase());
-    //     });
-    // });
-
     capitalize(arrayIngredients);
     let sortIngredients = [...new Set(arrayIngredients)].sort();
     ulIngredient.textContent = "";
