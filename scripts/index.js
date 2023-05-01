@@ -26,5 +26,4 @@ const init = () => {
     searchTagsInList();
     openCloseList();
 };
-init();
-//window.onload = init;
+window.onload = init;
