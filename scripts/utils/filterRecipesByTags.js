@@ -18,7 +18,6 @@ export function filterRecipeByTag(recipesData = recipes) {
     const selectedUstensilsTags = Array.from(
         document.getElementsByClassName("tag target ustensiles")
     );
-    console.log(selectedIngredientsTags);
 
     // Make a copy of recipes array
     let filteredRecipes = [...recipesData];
