@@ -23,7 +23,7 @@ export function searchInMainBar() {
     // Init a new array to keep recipes according to the input value
     let searchArray = [];
 
-    // If length of the value is greather than 3
+    // If length of the value is greater than 3
     if (searchInput.length >= 3) {
         // Filter the recipes in name, description and ingredients
         recipes.forEach((recipe) => {
