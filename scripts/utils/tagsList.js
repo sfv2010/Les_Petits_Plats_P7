@@ -33,6 +33,7 @@ export function displayIngredientsTagsList(recipes) {
                 arrayIngredients.push(ingredientKey.ingredient.toLowerCase());
         });
     });
+    capitalize(arrayIngredients);
     let sortIngredients = [...new Set(arrayIngredients)].sort();
     ulIngredient.textContent = "";
 
