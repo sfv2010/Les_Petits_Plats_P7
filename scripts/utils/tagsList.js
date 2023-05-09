@@ -30,7 +30,7 @@ export function displayIngredientsTagsList(recipes) {
                         .includes(ingredientKey.ingredient.toLowerCase());
                 })
             )
-                arrayIngredients.push(ingredientKey.ingredient);
+                arrayIngredients.push(ingredientKey.ingredient.toLowerCase());
         });
     });
     let sortIngredients = [...new Set(arrayIngredients)].sort();
