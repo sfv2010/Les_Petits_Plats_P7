@@ -1,4 +1,3 @@
-import { searchTagsInList } from "./searchTagsInList.js";
 import { searchInMainBar } from "./searchInMainBar.js";
 import { emptyInput } from "./util.js";
 
@@ -38,19 +37,4 @@ function closeTag(e) {
     e.target.remove();
     // Filter the recipes
     searchInMainBar();
-}
-
-export function displayTag(type) {
-    const listRecipes = document.querySelectorAll(`.listRecipe.${type}`);
-
-    listRecipes.forEach((listRecipe) => {
-        listRecipe.addEventListener("click", (e) => toggleTag(e, type));
-        listRecipe.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                toggleTag(e);
-            }
-        });
-    });
-
-    searchTagsInList();
 }
