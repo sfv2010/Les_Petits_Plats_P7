@@ -8,6 +8,11 @@ function createList(name, names, ul) {
     listRecipe.textContent = name;
     listRecipe.tabIndex = "0";
     listRecipe.addEventListener("click", (e) => toggleTag(e, names));
+    listRecipe.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            toggleTag(e, names);
+        }
+    });
     ul.appendChild(listRecipe);
 }
 
