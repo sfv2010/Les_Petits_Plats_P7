@@ -1,13 +1,13 @@
 import { capitalize } from "./util.js";
 import { toggleTag } from "./displayTag.js";
 
-function createList(name, names, ul, recipes) {
+function createList(name, names, ul) {
     const listRecipe = document.createElement("li");
     listRecipe.classList.add("listRecipe");
     listRecipe.classList.add(names);
     listRecipe.textContent = name;
     listRecipe.tabIndex = "0";
-    listRecipe.addEventListener("click", (e) => toggleTag(e, names, recipes));
+    listRecipe.addEventListener("click", (e) => toggleTag(e, names));
     ul.appendChild(listRecipe);
 }
 
