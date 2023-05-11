@@ -37,7 +37,7 @@ export function displayIngredientsTagsList(recipes) {
     ulIngredient.textContent = "";
 
     sortIngredients.forEach((ingredient) => {
-        createList(ingredient, "ingredients", ulIngredient, recipes);
+        createList(ingredient, "ingredients", ulIngredient);
     });
 }
 
