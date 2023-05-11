@@ -7,7 +7,6 @@ function createList(name, names, ul, recipes) {
     listRecipe.classList.add(names);
     listRecipe.textContent = name;
     listRecipe.tabIndex = "0";
-    //on peut donner 3 argument alors que le nombre de paramettre de toggletag est 2
     listRecipe.addEventListener("click", (e) => toggleTag(e, names, recipes));
     ul.appendChild(listRecipe);
 }
